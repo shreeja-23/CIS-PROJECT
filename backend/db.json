@@ -1,0 +1,102 @@
+{
+  "history": [
+    {
+      "url": "https://jsonplaceholder.typicode.com/posts",
+      "method": "GET",
+      "status": 200,
+      "responseTime": 361,
+      "createdAt": "2026-04-09T03:10:39.576Z"
+    },
+    {
+      "url": "https://jsonplaceholder.typicode",
+      "method": "GET",
+      "status": 500,
+      "responseTime": 1199,
+      "createdAt": "2026-04-09T04:05:02.059Z"
+    },
+    {
+      "url": "https://jsonplaceholder.typicode",
+      "method": "GET",
+      "status": 500,
+      "responseTime": 61,
+      "createdAt": "2026-04-09T04:09:26.593Z"
+    },
+    {
+      "url": "https://jsonplaceholder.typicode",
+      "method": "GET",
+      "status": 500,
+      "responseTime": 3,
+      "createdAt": "2026-04-09T04:09:27.835Z"
+    },
+    {
+      "url": "https://jsonplaceholder.typicode",
+      "method": "GET",
+      "status": 500,
+      "responseTime": 63,
+      "createdAt": "2026-04-09T04:09:38.868Z"
+    },
+    {
+      "url": "https://dummy-json.mock.beeceptor.com/posts",
+      "method": "GET",
+      "status": 200,
+      "responseTime": 1037,
+      "createdAt": "2026-04-09T04:09:53.780Z"
+    },
+    {
+      "url": "https://jsonplaceholder.typicode.com/posts",
+      "method": "GET",
+      "status": 200,
+      "responseTime": 319,
+      "createdAt": "2026-04-09T04:50:24.657Z"
+    },
+    {
+      "url": "http://127.0.0.1:5500/index.html",
+      "method": "GET",
+      "status": 500,
+      "responseTime": 6,
+      "createdAt": "2026-04-09T04:52:55.110Z"
+    },
+    {
+      "url": "https://jsonplaceholder.typicode.com/posts",
+      "method": "GET",
+      "status": 200,
+      "responseTime": 281,
+      "createdAt": "2026-04-09T04:53:08.478Z"
+    },
+    {
+      "url": "https://jsonplaceholder.typicode.com/posts",
+      "method": "GET",
+      "status": 200,
+      "responseTime": 128,
+      "createdAt": "2026-04-09T04:53:08.984Z"
+    },
+    {
+      "url": "https://jsonplaceholder.typicode.com/posts/1",
+      "method": "GET",
+      "status": 200,
+      "responseTime": 334,
+      "createdAt": "2026-04-09T04:54:01.697Z"
+    },
+    {
+      "url": "https://jsonplaceholder.typicode.com/posts/1",
+      "method": "GET",
+      "status": 200,
+      "responseTime": 1494,
+      "createdAt": "2026-04-09T04:55:38.298Z"
+    },
+    {
+      "url": "https://jsonplaceholder.typicode.com/posts/1",
+      "method": "GET",
+      "status": 200,
+      "responseTime": 711,
+      "createdAt": "2026-04-09T04:55:42.667Z"
+    },
+    {
+      "url": "https://jsonplaceholder.typicode.com/posts/1",
+      "method": "GET",
+      "status": 200,
+      "responseTime": 1072,
+      "createdAt": "2026-04-09T04:55:44.823Z"
+    }
+  ]
+}
