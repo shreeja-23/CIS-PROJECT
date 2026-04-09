@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API Tester</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      background: #f4f6f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 25px;
+      width: 450px;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    #status { font-weight: bold; margin-top: 10px; }
+    #time { color: blue; }
+    #speed { color: green; }
+    #size { color: purple; }
+
+    pre {
+      text-align: left;
+      background: #f1f1f1;
+      padding: 10px;
+      border-radius: 8px;
+      max-height: 200px;
+      overflow: auto;
+    }
+
+    .loading {
+      color: orange;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>🚀 API Tester</h2>
+
+  <input id="url" placeholder="Enter API URL">
+
+  <select id="method">
+    <option>GET</option>
+    <option>POST</option>
+  </select>
+
+  <!-- NEW FEATURE 1: Body Input -->
+  <textarea id="body" placeholder="Enter JSON body (for POST)"></textarea>
+
+  <button onclick="sendRequest()">Send Request</button>
+
+  <!-- Info -->
+  <div id="status"></div>
+  <div id="time"></div>
+  <div id="speed"></div>
+  <div id="size"></div>
+
+  <!-- NEW FEATURE 2: Loading -->
+  <div id="loading" class="loading"></div>
+
+  <pre id="output">Response will appear here...</pre>
+</div>
+
+<script>
+async function sendRequest() {
+  const url = document.getElementById("url").value;
+  const method = document.getElementById("method").value;
+  const bodyInput = document.getElementById("body").value;
+
+  document.getElementById("loading").innerText = "⏳ Loading...";
+  document.getElementById("output").innerText = "";
+
+  const start = performance.now();
+
+  try {
+    const res = await fetch("http://51.21.149.37:5000/api/test", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        url,
+        method,
+        body: bodyInput ? JSON.parse(bodyInput) : null
+      })
+    });
+
+    const end = performance.now();
+    const time = (end - start).toFixed(2);
+
+    const data = await res.json();
+
+    // Status
+    document.getElementById("status").innerText = "Status: " + res.status;
+
+    // Time
+    document.getElementById("time").innerText = "Response Time: " + time + " ms";
+
+    // Speed
+    let speed = "";
+    if (time < 200) speed = "⚡ Fast";
+    else if (time < 500) speed = "⚠ Medium";
+    else speed = "🐢 Slow";
+
+    document.getElementById("speed").innerText = "Speed: " + speed;
+
+    // NEW FEATURE 3: Response Size
+    const size = new Blob([JSON.stringify(data)]).size;
+    document.getElementById("size").innerText = "Size: " + size + " bytes";
+
+    // Output
+    document.getElementById("output").innerText =
+      JSON.stringify(data, null, 2);
+
+    document.getElementById("loading").innerText = "";
+
+  } catch (err) {
+    document.getElementById("status").innerText = "Status: ERROR";
+    document.getElementById("loading").innerText = "";
+    document.getElementById("output").innerText = "Error occurred";
+  }
+}
+</script>
+
+</body>
+</html>
